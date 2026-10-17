@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Select Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero">
+        <div class="selector">
+            <div id="selectField">
+                <p id="texts">Select Social Media</p>
+                <img src="SelectMenu_Img/arrow.png" alt="" id="icon">
+            </div>
+            <ul id="list" class="hide">
+                <li>
+                    <img src="SelectMenu_Img/facebook.png" alt="Facebook">
+                    <p>Facebook</p>
+                </li>
+                <li>
+                    <img src="SelectMenu_Img/instagram.png" alt="Instagram">
+                    <p>Instagram</p>
+                </li>
+                <li>
+                    <img src="SelectMenu_Img/twitter.png" alt="Twitter">
+                    <p>Twitter</p>
+                </li>
+                <li>
+                    <img src="SelectMenu_Img/whatsapp.png" alt="WhatsApp">
+                    <p>WhatsApp</p>
+                </li>
+                <li>
+                    <img src="SelectMenu_Img/pinterest.png" alt="Pinterest">
+                    <p>Pinterest</p>
+                </li>
+                <li>
+                    <img src="SelectMenu_Img/youtube.png" alt="YouTube">
+                    <p>YouTube</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const selectField = document.getElementById("selectField");
+        const texts = document.getElementById("texts");
+        const options = document.querySelectorAll("#list li");
+        const list = document.getElementById("list");   
+        const icon = document.getElementById("icon");
+
+        selectField.onclick = function() {
+            list.classList.toggle("hide");
+            icon.classList.toggle("rotate");
+        };
+
+        for (const option of options) {
+            option.onclick = function() {
+                texts.textContent = this.querySelector("p").textContent.trim();
+                list.classList.add("hide"); 
+                icon.classList.remove("rotate");
+            };
+        }
+    </script>
+</body>
+</html>
